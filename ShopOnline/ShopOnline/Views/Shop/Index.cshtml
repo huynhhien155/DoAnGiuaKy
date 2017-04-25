@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ShopOnlineConnection.SanPham>
+
+
+
+<div class="shop-grid">
+    <div class="container">
+        @foreach (var i in Model)
+        {
+            <div class="col-md-4 grid-stn simpleCart_shelfItem">
+                <!-- normal -->
+                <div class="ih-item square effect3 bottom_to_top">
+                    <div class="bottom-2-top">
+                        <div class="img"><img src="/Asset/images/@{@i.HinhChinh}" alt="/" class="img-responsive gri-wid"></div>
+                        <div class="info">
+                            <div class="pull-left styl-hdn">
+                                <h3>@i.TenSanPham</h3>
+                            </div>
+                            <div class="pull-right styl-price">
+                                <p><a href="@Url.Action("Details",null,new { id = i.MaSanPham })" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end normal -->
+                <div class="quick-view">
+                    <a href="@Url.Action("Details",null,new { id = i.MaSanPham })">Quick view</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
